@@ -1,0 +1,141 @@
+<template>
+    <!-- Section One -->
+    <!-- lightning button for open modal window -->
+        <lightning-button
+            variant="brand-outline"
+            label="Pop for Customers Date Changing"
+            title="PopUp Number 1"
+            onclick={openModal}
+            class="slds-align_absolute-center"
+            icon-name="action:edit"
+        >
+        </lightning-button>
+        <lightning-button
+            variant="brand-outline"
+            label="Pop for Customers Name Changing"
+            title="PopUp Number 2"
+            onclick={openModal}
+            class="slds-align_absolute-center"
+            icon-name="action:edit"
+        >
+        </lightning-button>
+        <lightning-button
+            variant="brand-outline"
+            label="Pop for Customers Amount Changing"
+            title="PopUp Number 3"
+            onclick={openModal}
+            class="slds-align_absolute-center"
+            icon-name="action:edit"
+        >
+        </lightning-button>
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Popup Box LWC -->
+        <section
+            role="dialog"
+            tabindex="-1"
+            aria-labelledby="modal-heading-01"
+            aria-modal="true"
+            aria-describedby="modal-content-id-1"
+            class="slds-modal slds-fade-in-open"
+        >
+            <div class="slds-modal__container">
+                <!-- Popup Box LWC -->
+                <header class="slds-modal__header">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse slds-close-button"
+                        title="Close"
+                        onclick={closeModal}
+                    >
+                        <lightning-icon
+                            icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small"
+                        ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2
+                        id="modal-heading-01"
+                        class="slds-text-heading_medium slds-hyphenate"
+                    >
+                        Opportunities Form Box LWC
+                    </h2>
+                </header>
+                <!-- Popup Box LWC -->
+                <div
+                    class="slds-modal__content slds-p-around_medium"
+                    id="modal-content-id-1"
+                >
+                    <!-- HERE IS THE CONTENT FOR THE POPUP WINDOW -->
+                    <lightning-card
+                        title="Opportunities"
+                        icon-name="custom:custom15"
+                    >
+                        <div class="slds-var-m-around_medium">
+                            <!-- Editing Form -->
+                            <lightning-record-edit-form
+                                record-id={recordid}
+                                object-api-name="Opportunity"
+                            >
+                                <lightning-input
+                                    type="text"
+                                    name="name"
+                                    label="Opportunity Name"
+                                    value={name}
+                                    required
+                                ></lightning-input>
+                                <lightning-input
+                                    type="date"
+                                    name="date"
+                                    label="Close Date"
+                                    value={closedate}
+                                ></lightning-input>
+                                <lightning-input
+                                    type="number"
+                                    name="amount"
+                                    label="Amount"
+                                    value={amount}
+                                ></lightning-input>
+                                <hr />
+                                <lightning-badge
+                                    label="Send E-Mail"
+                                    icon-name="standard:email"
+                                    icon-position="end"
+                                ></lightning-badge>
+                                <hr />
+                                <lightning-button
+                                    class="slds-m-left_medium"
+                                    variant="brand"
+                                    type="submit"
+                                    name="update"
+                                    label="Update"
+                                    onclick={showToast}
+                                >
+                                </lightning-button>
+                            </lightning-record-edit-form>
+                        </div>
+                    </lightning-card>
+                </div>
+                <!-- Popup Box LWC -->
+                <footer class="slds-modal__footer">
+                    <button
+                        class="slds-button slds-button_neutral"
+                        onclick={closeModal}
+                        title="Cancel"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        class="slds-button slds-button_brand"
+                        onclick={submitDetails}
+                        title="Next"
+                    >
+                        Next
+                    </button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

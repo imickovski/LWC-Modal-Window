@@ -1,0 +1,12 @@
+<template>
+    <lightning-tabset>
+        <lightning-tab label="Item One">
+            <template if:true={opportunities.data}>
+                <c-first-tab name={name} closedate={closeDate} amount={amount} recordid={recordId}></c-first-tab>
+            </template>
+        </lightning-tab>
+        <lightning-tab label="Item Two">
+            <c-second-tab></c-second-tab>
+        </lightning-tab>
+    </lightning-tabset>
+</template>
