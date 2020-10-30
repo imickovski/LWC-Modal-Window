@@ -22,6 +22,17 @@ describe('c-tabs-form', () => {
         return new Promise((resolve) => setImmediate(resolve));
     }
 
+    it('Check number of lightning tabs', () => {
+        const element = createElement('c-tabs-form', {
+            is: TabsForm
+        });
+        document.body.appendChild(element);
+
+        let lightningTabs = element.shadowRoot.querySelectorAll('lightning-tab').length
+
+        expect(lightningTabs).toBe(2)
+    })
+
     it('renders Opportunity details', () => {
         const element = createElement('c-tabs-form', {
             is: TabsForm
