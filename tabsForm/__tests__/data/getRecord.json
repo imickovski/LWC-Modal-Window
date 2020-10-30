@@ -1,0 +1,23 @@
+{
+    "apiName": "Opportunity",
+    "fields": {
+        "Amount": {
+            "displayValue": "220.000,00 €",
+            "value": 220000
+        },
+        "CloseDate": {
+            "displayValue": "26.10.2020",
+            "value": "2020-10-26"
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "Express Logistics Standby Mic"
+        }
+    },
+    "id": "006090000033F4nAAE",
+    "lastModifiedById": "00509000000zFGzAAM",
+    "lastModifiedDate": "2020-10-28T09:05:37.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2020-10-28T09:05:37.000Z"
+}
