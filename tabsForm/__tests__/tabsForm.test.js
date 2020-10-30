@@ -31,7 +31,20 @@ describe('c-tabs-form', () => {
         let lightningTabs = element.shadowRoot.querySelectorAll('lightning-tab').length
 
         expect(lightningTabs).toBe(2)
-    })
+    });
+
+    it('Check the label for the second lightning-tab', () => {
+        const element = createElement('c-tabs-form', {
+            is: TabsForm
+        });
+        document.body.appendChild(element);
+
+        // Get the second Lightning Tab with utilizing power of CSS selector
+        const secondLightningTab = element.shadowRoot.querySelector('lightning-tab:nth-child(2)')
+
+        expect(secondLightningTab.label).toBe("Item Two")
+
+    });
 
     it('renders Opportunity details', () => {
         const element = createElement('c-tabs-form', {
@@ -55,6 +68,7 @@ describe('c-tabs-form', () => {
             expect(amount.amount).toBe(mockGetRecord.fields.Amount.value);
         });
     });
+    
     it('is accessible when data is returned', () => {
         // Create element
         const element = createElement('c-tabs-form', {
