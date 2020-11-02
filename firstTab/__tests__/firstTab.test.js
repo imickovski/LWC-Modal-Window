@@ -8,15 +8,40 @@ describe('c-first-tab', () => {
             document.body.removeChild(document.body.firstChild);
         }
     });
- 
-    it('Check if isModalOpen is false', () => {
+
+    // it('is Open Modal true?', () => {
+    //     const element = new FirstTab();
+
+    //     element.openModal();
+
+    //     expect(element.isModalOpen).toBe(true);
+    // });
+
+    it('is OpenModal true', () => {
+        const element = createElement('c-first-tab', {
+            is: FirstTab
+        });
+
+        let isModalOpen = (element.isModalOpen);
+         
+        document.body.appendChild(element);
+
+        let openModal = element.openModal = jest.fn().mockImplementation(()=>{
+            element.isModalOpen = true;
+            return element.isModalOpen;
+        })
+
+        // let template = element.shadowRoot.querySelector('template:nth-child(2)')
+
+        expect(isModalOpen).toBe(openModal());
+    });
+
+    it('is Accessible', () => {
         const element = createElement('c-first-tab', {
             is: FirstTab
         });
         document.body.appendChild(element);
 
-        
-        
-        expect(element.isModalOpen).toBe(true);
+        return Promise.resolve().then(() => expect(element).toBeAccessible());
     });
 });

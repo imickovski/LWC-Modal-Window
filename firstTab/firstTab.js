@@ -8,7 +8,7 @@ export default class firstTab extends LightningElement {
     @api amount;
     @track isModalOpen = false;
 
-    showToast() {
+    showToastSuccess() {
         const event = new ShowToastEvent({
             title: 'Updated',
             message: 'Opportunity updated',
@@ -22,24 +22,30 @@ export default class firstTab extends LightningElement {
         // to open modal set isModalOpen tarck value as true
         this.isModalOpen = true;
     }
+    
     closeModal() {
         // to close modal set isModalOpen tarck value as false
         this.isModalOpen = false;
     }
-        
-    submitDetails() {
-        // to close modal set isModalOpen track value as false
-        //Add your code to call apex method or do some processing
 
-        if (this.template.querySelector('lightning-input').value === '') {
+    
+    showToastError() {
+        const event = new ShowToastEvent({
+            title: 'Attention',
+            message: 'You must fill the form',
+            variant: 'error',
+            mode: 'dismissable'
+        });
+        this.dispatchEvent(event);
+    }
+
+    submitDetails() {
+        let firstLightningInput = this.template.querySelector('lightning-input').value;
+        // to close modal set isModalOpen track value as false
+        //Add your code in else statement to call apex method or do some processing
+        if (firstLightningInput === '') {
             this.isModalOpen = true;
-            const event = new ShowToastEvent({
-                title: 'Attention',
-                message: 'You must fill the form',
-                variant: 'error',
-                mode: 'dismissable'
-            });
-            this.dispatchEvent(event);
+            this.showToastError();
         } else {
             // Code for Another Action after clicking Next
             this.isModalOpen = false;

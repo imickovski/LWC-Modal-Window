@@ -1,33 +1,11 @@
 <template>
     <!-- Section One -->
     <!-- lightning button for open modal window -->
-        <lightning-button
-            variant="brand-outline"
-            label="Pop for Customers Date Changing"
-            title="PopUp Number 1"
-            onclick={openModal}
-            class="slds-align_absolute-center"
-            icon-name="action:edit"
-        >
-        </lightning-button>
-        <lightning-button
-            variant="brand-outline"
-            label="Pop for Customers Name Changing"
-            title="PopUp Number 2"
-            onclick={openModal}
-            class="slds-align_absolute-center"
-            icon-name="action:edit"
-        >
-        </lightning-button>
-        <lightning-button
-            variant="brand-outline"
-            label="Pop for Customers Amount Changing"
-            title="PopUp Number 3"
-            onclick={openModal}
-            class="slds-align_absolute-center"
-            icon-name="action:edit"
-        >
-        </lightning-button>
+    <div>
+        <button class="slds-button slds-button_outline-brand slds-button_stretch"  onclick={openModal}>Stretched Neutral Button</button><hr>
+        <button class="slds-button slds-button_outline-brand slds-button_stretch"  onclick={openModal}>Another Random Button With Some Text</button><hr>
+        <button class="slds-button slds-button_outline-brand slds-button_stretch"  onclick={openModal}>Stretched Neutral Button</button><hr>
+    </div>
     <!--Use template if:true to display/hide popup based on isModalOpen value-->
     <template if:true={isModalOpen}>
         <!-- Popup Box LWC -->
@@ -42,6 +20,7 @@
             <div class="slds-modal__container">
                 <!-- Popup Box LWC -->
                 <header class="slds-modal__header">
+                    <!-- Close Button for the Modal Window -->
                     <button
                         class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse slds-close-button"
                         title="Close"
@@ -55,6 +34,7 @@
                         ></lightning-icon>
                         <span class="slds-assistive-text">Close</span>
                     </button>
+
                     <h2
                         id="modal-heading-01"
                         class="slds-text-heading_medium slds-hyphenate"
@@ -110,7 +90,7 @@
                                     type="submit"
                                     name="update"
                                     label="Update"
-                                    onclick={showToast}
+                                    onclick={showToastSuccess}
                                 >
                                 </lightning-button>
                             </lightning-record-edit-form>

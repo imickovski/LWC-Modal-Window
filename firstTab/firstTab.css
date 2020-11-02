@@ -6,3 +6,20 @@
     padding-left: 100px;
     padding-right: 100px;
 }
+
+.slds-button {
+    border-style: groove;
+    border-width: medium;
+    border-color: rgba(212, 213, 219, 0.959);
+}
+
+.slds-button:hover {
+    background-color: #e4eff1f1;
+    transition: 0.3s;
+}
+
+hr {
+    margin: 0.5px;
+    visibility: hidden;
+}
+
